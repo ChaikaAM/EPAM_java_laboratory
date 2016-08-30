@@ -1,3 +1,4 @@
+import java.text.DateFormat;
 import java.util.Date;
 
 /**
@@ -9,11 +10,13 @@ public class Event {
 
     private String message;
     private Date date;
+    private DateFormat dateFormat;
     private int id;
 
-    public Event(Date date) {
+    public Event(Date date, DateFormat dateFormat) {
         this.date = date;
         this.id=++last_id;
+        this.dateFormat=dateFormat;
     }
 
     public static int getLast_id() {
@@ -38,7 +41,7 @@ public class Event {
 
     @Override
     public String toString() {
-        return date + " message id " + id +
+        return dateFormat.format(date) + " message id " + id +
                 " : <" + message + ">";
     }
 }

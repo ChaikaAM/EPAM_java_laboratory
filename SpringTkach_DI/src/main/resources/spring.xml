@@ -20,5 +20,10 @@
         <constructor-arg>
             <bean class="java.util.Date"/>
         </constructor-arg>
+        <constructor-arg>
+            <bean class="java.text.DateFormat"
+                  factory-method="getDateTimeInstance">
+            </bean>
+        </constructor-arg>
     </bean>
 </beans>
