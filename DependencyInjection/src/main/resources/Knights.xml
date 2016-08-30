@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="knight1" class="kingdom.Knight">
+        <constructor-arg value="Jayme"/>
+        <constructor-arg value="100"/>
+        <constructor-arg ref="sword"/>
+    </bean>
+    <bean id="knight2" class="kingdom.Knight">
+        <constructor-arg value="Mountain"/>
+        <constructor-arg value="200"/>
+        <constructor-arg ref="axe"/>
+    </bean>
+
+    <bean id="sword" class="kingdom.Weapon">
+        <property name="power" value="10"/>
+    </bean>
+    <bean id="axe" class="kingdom.Weapon">
+        <property name="power" value="4"/>
+    </bean>
+</beans>

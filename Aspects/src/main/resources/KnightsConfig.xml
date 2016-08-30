@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+    <bean id="minstrel" class="Minstrel"/>
+    <bean id="jayme" class="BraveKnight">
+        <constructor-arg value="Jayme"/>
+    </bean>
+
+    <aop:config>
+        <aop:aspect ref="minstrel">
+            <aop:pointcut id="minstrelPointCut" expression="execution(* *.doQuest())"/>
+
+            <aop:before pointcut-ref="minstrelPointCut" method="singBeforeQuest"/>
+
+            <aop:after pointcut-ref="minstrelPointCut" method="singAfterQuest"/>
+        </aop:aspect>
+    </aop:config>
+</beans>
