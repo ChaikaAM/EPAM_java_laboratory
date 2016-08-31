@@ -1,3 +1,4 @@
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -8,20 +9,22 @@ public class App {
     Client client;
     EventLogger eventLogger;
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("spring.xml");
+        ConfigurableApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("spring.xml");
 
         App appFromXML = classPathXmlApplicationContext.getBean("myapp", App.class);
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 39; i++) {
             Event anotherevent = classPathXmlApplicationContext.getBean("anotherevent", Event.class);
-            anotherevent.setMessage("new event("+(i+1)+")");
+            anotherevent.setMessage("new event("+(i+1)+")"+System.lineSeparator());
             appFromXML.logEvent(anotherevent);
             try {
-                Thread.sleep(500);
+                Thread.sleep(100);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
+
+        classPathXmlApplicationContext.close();
     }
 
     private void logEvent(Event ebent){

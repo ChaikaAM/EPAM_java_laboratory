@@ -12,7 +12,10 @@
             </bean>
         </property>
         <property name="eventLogger">
-            <bean class="ConsoleEventLogger"/>
+            <bean class="CacheFileEventLogger" init-method="init" destroy-method="destory">
+                <constructor-arg value="c:/java/fileeventlogger.txt"/>
+                <property name="cacheSize" value="10"/>
+            </bean>
         </property>
     </bean>
 
@@ -23,6 +26,8 @@
         <constructor-arg>
             <bean class="java.text.DateFormat"
                   factory-method="getDateTimeInstance">
+                <constructor-arg value="0" type="int"/>
+                <constructor-arg value="2" type="int"/>
             </bean>
         </constructor-arg>
     </bean>
