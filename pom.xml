@@ -13,10 +13,11 @@
         <module>junitAndTDDModule</module>
         <module>DependencyInjection</module>
         <module>Aspects</module>
-        <module>SpringTkach_DI</module>
+        <module>SpringTkachCourse</module>
         <module>lab-03-core</module>
         <module>lab-04-core</module>
         <module>lab-05-aop</module>
+        <module>lab-06-jdbc</module>
     </modules>
 
     <properties>

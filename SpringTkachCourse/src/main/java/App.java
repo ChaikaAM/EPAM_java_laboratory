@@ -12,7 +12,7 @@ public class App {
         ConfigurableApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("spring.xml");
 
         App appFromXML = classPathXmlApplicationContext.getBean("myapp", App.class);
-
+        App bean = classPathXmlApplicationContext.getBean(App.class);
         for (int i = 0; i < 39; i++) {
             Event anotherevent = classPathXmlApplicationContext.getBean("anotherevent", Event.class);
             anotherevent.setMessage("new event("+(i+1)+")"+System.lineSeparator());
