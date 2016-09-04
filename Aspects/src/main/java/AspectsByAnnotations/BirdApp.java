@@ -10,13 +10,12 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
  */
 public class BirdApp {
     public static void main(String[] args) {
-        FileSystemXmlApplicationContext aspectinitcontext = new FileSystemXmlApplicationContext("Aspects/src/main/java/AspectsByAnnotations/aspectsinit.xml");
+        FileSystemXmlApplicationContext aspectinitcontext =
+                new FileSystemXmlApplicationContext("Aspects/src/main/java/AspectsByAnnotations/aspectsinit.xml");
 
         Bird bean = aspectinitcontext.getBean(Bird.class);
 
         bean.saySomeThing();
         bean.sayWhoYouAre();
-
-        aspectinitcontext.getBean(Souter.class).sayAboutBegin();
     }
 }

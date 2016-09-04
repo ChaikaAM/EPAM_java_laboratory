@@ -6,8 +6,10 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <aop:aspectj-autoproxy/>
+
     <context:component-scan base-package="AspectsByAnnotations"/>
 
-    <aop:aspectj-autoproxy/>
+    <bean id="aspect" class="AspectsByAnnotations.Souter"/>
 
 </beans>

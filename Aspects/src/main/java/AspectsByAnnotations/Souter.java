@@ -12,19 +12,19 @@ import org.aspectj.lang.annotation.Pointcut;
 @Aspect
 public class Souter {
 
-    @Pointcut("execution(* *.saySomeThing())")
+    @Pointcut(value = "execution(* *.*())")
     public void ololo() {
 
     }
 
     //    @Before("execution(* *.saySomeThing())")
-    @Before("ololo")
+    @Before("ololo()")
     void sayAboutBegin() {
         System.out.println("----------------------");
         System.out.println("New command started...");
     }
 
-    @After("*.*")
+    @After("ololo()")
     void sayAboutEnd() {
         System.out.println("Command done!!");
     }
