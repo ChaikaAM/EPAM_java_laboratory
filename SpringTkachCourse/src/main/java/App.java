@@ -1,5 +1,8 @@
+import AnnotationsPlusXMLExample.EventType;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import java.util.Map;
 
 /**
  * Created by Chaika Aleksei on 30.08.2016.
@@ -7,7 +10,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class App {
 
     Client client;
-    EventLogger eventLogger;
+    Map<EventType,EventLogger> eventLoggersMap;
+    EventLogger defaultEventLogger;
+
     public static void main(String[] args) {
         ConfigurableApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("spring.xml");
 
@@ -16,7 +21,7 @@ public class App {
         for (int i = 0; i < 39; i++) {
             Event anotherevent = classPathXmlApplicationContext.getBean("anotherevent", Event.class);
             anotherevent.setMessage("new event("+(i+1)+")"+System.lineSeparator());
-            appFromXML.logEvent(anotherevent);
+            appFromXML.logEvent(anotherevent, EventType.ERROR);
             try {
                 Thread.sleep(100);
             } catch (InterruptedException e) {
@@ -27,15 +32,21 @@ public class App {
         classPathXmlApplicationContext.close();
     }
 
-    private void logEvent(Event ebent){
-        this.eventLogger.logEvent(ebent);
+    private void logEvent(Event ebent, EventType eventType){
+        if (eventType==null){
+            defaultEventLogger.logEvent(ebent);
+        } else this.eventLoggersMap.get(eventType).logEvent(ebent);
     }
 
     public void setClient(Client client) {
         this.client = client;
     }
 
-    public void setEventLogger(EventLogger eventLogger) {
-        this.eventLogger = eventLogger;
+    public void setEventLoggersMap(Map<EventType,EventLogger> eventLoggersMap) {
+        this.eventLoggersMap = eventLoggersMap;
+    }
+
+    public void setDefaultEventLogger(EventLogger defaultEventLogger) {
+        this.defaultEventLogger = defaultEventLogger;
     }
 }

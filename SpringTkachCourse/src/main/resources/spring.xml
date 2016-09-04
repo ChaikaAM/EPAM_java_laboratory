@@ -9,6 +9,13 @@
     <import resource="others.xml"/>
     <bean id="myapp" class="App">
         <property name="client" ref="client"/>
-        <property name="eventLogger" ref="cachedfileeventlogger"/>
+        <property name="eventLoggersMap">
+            <map>
+                <entry key="INFO" value-ref="consoleeventlogger"/>
+                <entry key="ERROR" value-ref="combinedeventlogger"/>
+            </map>
+        </property>
+        <property name="defaultEventLogger" ref="cachedfileeventlogger"/>
+
     </bean>
 </beans>

@@ -11,4 +11,13 @@
     </bean>
 
     <bean id="consoleeventlogger" class="ConsoleEventLogger"/>
+
+    <bean id="combinedeventlogger" class="CombinedEventLogger">
+        <constructor-arg>
+            <list>
+                <ref bean="consoleeventlogger"/>
+                <ref bean="cachedfileeventlogger"/>
+            </list>
+        </constructor-arg>
+    </bean>
 </beans>

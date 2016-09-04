@@ -17,5 +17,7 @@ public class BirdApp {
 
         bean.saySomeThing();
         bean.sayWhoYouAre();
+
+
     }
 }

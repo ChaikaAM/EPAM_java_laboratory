@@ -12,7 +12,8 @@ import org.aspectj.lang.annotation.Pointcut;
 @Aspect
 public class Souter {
 
-    @Pointcut(value = "execution(* *.*())")
+//        @Pointcut(value = "execution(* *.*())")
+    @Pointcut(value = "execution(* Bird.*(..))")
     public void ololo() {
 
     }
