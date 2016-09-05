@@ -13,12 +13,11 @@ import org.aspectj.lang.annotation.Pointcut;
 public class Souter {
 
 //        @Pointcut(value = "execution(* *.*())")
-    @Pointcut(value = "execution (* *.saySomeThing())")
+    @Pointcut(value = "execution(* Bird.*(..))")
     public void ololo() {
 
     }
 
-    //    @Before("execution(* *.saySomeThing())")
     @Before("ololo()")
     void sayAboutBegin() {
         System.out.println("----------------------");

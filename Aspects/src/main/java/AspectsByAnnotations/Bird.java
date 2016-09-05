@@ -19,11 +19,11 @@ public class Bird{
     @Value("Krokoko")
     private String myspeach;
 
-    void sayWhoYouAre(){
+    public void sayWhoYouAre(){
         System.out.println("I am " + name);
     }
 
-    void saySomeThing(){
+    public void saySomeThing(){
         System.out.println(name + " says : " + myspeach);
     }
 }
