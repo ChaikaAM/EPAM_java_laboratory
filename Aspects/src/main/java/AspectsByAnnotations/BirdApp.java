@@ -15,6 +15,7 @@ public class BirdApp {
 
         Bird bean = aspectinitcontext.getBean(Bird.class);
 
+
         bean.saySomeThing();
         bean.sayWhoYouAre();
 

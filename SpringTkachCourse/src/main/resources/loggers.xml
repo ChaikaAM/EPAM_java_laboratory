@@ -3,7 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <bean id="fileeventlogger" class="FileEventLogger" init-method="init">
-        <constructor-arg value="c:/java/fileeventlogger.txt"/>
+        <constructor-arg value="${filePath}"/>
     </bean>
 
     <bean id="cachedfileeventlogger" class="CacheFileEventLogger" parent="fileeventlogger" destroy-method="destory">
@@ -20,4 +20,5 @@
             </list>
         </constructor-arg>
     </bean>
+
 </beans>

@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:p="http://www.springframework.org/schema/p" xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd">
+       http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
     <import resource="loggers.xml"/>
     <import resource="others.xml"/>
     <bean id="myapp" class="App">
         <property name="client" ref="client"/>
-        <property name="eventLoggersMap">
-            <map>
-                <entry key="INFO" value-ref="consoleeventlogger"/>
-                <entry key="ERROR" value-ref="combinedeventlogger"/>
-            </map>
-        </property>
+        <property name="eventLoggersMap" ref="eventLoggersMap"/>
         <property name="defaultEventLogger" ref="cachedfileeventlogger"/>
+    </bean>
 
+    <util:map id="eventLoggersMap" map-class="java.util.TreeMap">
+        <entry key="INFO" value-ref="consoleeventlogger"/>
+        <entry key="ERROR" value-ref="combinedeventlogger"/>
+    </util:map>
+
+    <bean id="test" class="java.lang.String">
+        <constructor-arg value="#{myapp.x2()}"/>
     </bean>
 </beans>

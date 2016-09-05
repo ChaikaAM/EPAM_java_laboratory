@@ -11,7 +11,7 @@ import javax.annotation.PostConstruct;
  */
 
 @Component(value = "kakadu")
-public class Bird {
+public class Bird{
 
     @Value("Kakadu")
     private String name;

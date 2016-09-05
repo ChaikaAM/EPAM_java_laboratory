@@ -1,7 +1,9 @@
 import AnnotationsPlusXMLExample.EventType;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -29,6 +31,8 @@ public class App {
             }
         }
 
+        System.out.println(classPathXmlApplicationContext.getBean("test"));
+
         classPathXmlApplicationContext.close();
     }
 
@@ -48,5 +52,9 @@ public class App {
 
     public void setDefaultEventLogger(EventLogger defaultEventLogger) {
         this.defaultEventLogger = defaultEventLogger;
+    }
+
+    public String x2(){
+        return "x2";
     }
 }

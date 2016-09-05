@@ -39,8 +39,9 @@ public class CountryDao extends JdbcDaoSupport {
 		return countryList;
 		// return null;
 		// 	}
+	}
 
-	public List<Country> getCountryListStartWith(String name) {
+	public List<Country> getCountryListStartWith(String name){
 		NamedParameterJdbcTemplate namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(
 				getDataSource());
 		SqlParameterSource sqlParameterSource = new MapSqlParameterSource(
