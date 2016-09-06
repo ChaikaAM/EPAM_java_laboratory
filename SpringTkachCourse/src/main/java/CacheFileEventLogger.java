@@ -34,7 +34,7 @@ public class CacheFileEventLogger extends FileEventLogger {
     private void destory(){
         loggedFromCache.setMessage("-------------------------------------\nClosing program:");
         super.logEvent(loggedFromCache);
-        for (int i = 0; i < cacheSize; i++) {
+        for (int i = 0; i < cache.size(); i++) {
             super.logEvent(cache.get(i));
         }
         cache.clear();

@@ -1,8 +1,12 @@
 import AnnotationsPlusXMLExample.EventType;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.Import;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
 
@@ -12,26 +16,29 @@ import java.util.Map;
 public class App {
 
     Client client;
+
     Map<EventType,EventLogger> eventLoggersMap;
-    EventLogger defaultEventLogger;
+
+    @Autowired
+    @Qualifier("cachedfileeventlogger")
+
+    public EventLogger defaultEventLogger;
 
     public static void main(String[] args) {
         ConfigurableApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("spring.xml");
 
         App appFromXML = classPathXmlApplicationContext.getBean("myapp", App.class);
-        App bean = classPathXmlApplicationContext.getBean(App.class);
+
         for (int i = 0; i < 39; i++) {
             Event anotherevent = classPathXmlApplicationContext.getBean("anotherevent", Event.class);
             anotherevent.setMessage("new event("+(i+1)+")"+System.lineSeparator());
-            appFromXML.logEvent(anotherevent, EventType.ERROR);
+            appFromXML.logEvent(anotherevent, null);
             try {
                 Thread.sleep(100);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
-
-        System.out.println(classPathXmlApplicationContext.getBean("test"));
 
         classPathXmlApplicationContext.close();
     }
@@ -54,7 +61,4 @@ public class App {
         this.defaultEventLogger = defaultEventLogger;
     }
 
-    public String x2(){
-        return "x2";
-    }
 }
