@@ -24,7 +24,4 @@
         </constructor-arg>
     </bean>
 
-
-    <bean id="defaulteventlogger" class="ConsoleEventLogger"/>
-
 </beans>

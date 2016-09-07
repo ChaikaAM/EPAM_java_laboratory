@@ -12,7 +12,7 @@
     <bean id="myapp" class="App">
         <property name="client" ref="client"/>
         <property name="eventLoggersMap" ref="eventLoggersMap"/>
-        <!--property name="defaultEventLogger" ref="cachedfileeventlogger"/-->
+        <property name="defaultEventLogger" value="#{T(App).isDay()?consoleeventlogger:fileeventlogger}"/>
     </bean>
 
     <util:map id="eventLoggersMap" map-class="java.util.TreeMap">

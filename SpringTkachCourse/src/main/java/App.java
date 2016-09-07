@@ -7,6 +7,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -59,6 +60,11 @@ public class App {
 
     public void setDefaultEventLogger(EventLogger defaultEventLogger) {
         this.defaultEventLogger = defaultEventLogger;
+    }
+
+    public static boolean isDay(){
+        int hour = new Date().getHours();
+        return (hour>8 && hour<17);
     }
 
 }

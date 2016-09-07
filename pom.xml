@@ -18,6 +18,7 @@
         <module>lab-04-core</module>
         <module>lab-05-aop</module>
         <module>lab-06-jdbc</module>
+        <module>lab-07-orm</module>
     </modules>
 
     <properties>
