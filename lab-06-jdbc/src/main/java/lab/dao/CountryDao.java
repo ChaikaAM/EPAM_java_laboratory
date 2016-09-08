@@ -31,8 +31,7 @@ public class CountryDao extends JdbcDaoSupport {
 	private static final CountryRowMapper COUNTRY_ROW_MAPPER = new CountryRowMapper();
 
 	public List<Country> getCountryList() {
-		// TODO: implement it
-		// FIXME: Remove this row
+
 		List<Country> countryList = getJdbcTemplate().query(
 				GET_ALL_COUNTRIES_SQL, COUNTRY_ROW_MAPPER);
 
@@ -51,8 +50,6 @@ public class CountryDao extends JdbcDaoSupport {
 	}
 
 	public void updateCountryName(String codeName, String newCountryName) {
-		// TODO: implement it
-		// FIXME: Remove this row
 		getJdbcTemplate().execute(
 				UPDATE_COUNTRY_NAME_SQL_1 + newCountryName + "'"
 						+ UPDATE_COUNTRY_NAME_SQL_2 + codeName + "'");

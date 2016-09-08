@@ -16,7 +16,6 @@ public class CountryRowMapper implements RowMapper<Country> {
 		country.setId(resultSet.getInt(ID));
 		country.setName(resultSet.getString(NAME));
 
-		// FIXME: Remove this row
 		country.setCodeName(resultSet.getString(CODE_NAME));
 		return country;
 	}
