@@ -1,0 +1,1 @@
+INSERT INTO messages (message) VALUES ('This is first message')
