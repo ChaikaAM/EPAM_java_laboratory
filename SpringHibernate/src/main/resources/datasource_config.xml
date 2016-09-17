@@ -11,5 +11,19 @@
         <property name="url" value="jdbc:h2:/media/chaikaam/EC4E77DE4E77A04E/IDEA_projects/EPAM_java_laboratory/SpringHibernate/src/main/resources/Base"/>
         <property name="username" value=""/>
         <property name="password" value=""/>
+        <property name="suppressClose">
+            <value>true</value>
+        </property>
+
+    </bean>
+
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="dialect">org.hibernate.dialect.H2Dialect</prop>
+            </props>
+        </property>
+        <property name="annotatedClasses" value="Student"/>
     </bean>
 </beans>
