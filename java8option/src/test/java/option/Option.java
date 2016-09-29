@@ -1,4 +1,4 @@
-package test.java.option;
+package option;
 
 import java.util.Objects;
 import java.util.function.Consumer;

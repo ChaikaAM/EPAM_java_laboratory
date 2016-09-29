@@ -21,7 +21,9 @@
         <module>lab-07-orm</module>
         <module>SpringJDBC</module>
         <module>SpringHibernate</module>
-        <module>Optional</module>
+        <module>java8lambda</module>
+        <module>java8option</module>
+        <module>java8streams</module>
     </modules>
 
     <properties>
