@@ -51,7 +51,7 @@ public class StreamsExercise1 {
     public void sumEpamDurations() {
         final List<Employee> employees = generateEmployeeList();
 
-        int expected = 0;
+        int expected = 0;   //Why 0?
 
         for (Employee e : employees) {
             for (JobHistoryEntry j : e.getJobHistory()) {
