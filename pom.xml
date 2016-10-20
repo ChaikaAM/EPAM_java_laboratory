@@ -24,6 +24,7 @@
         <module>java8lambda</module>
         <module>java8option</module>
         <module>java8streams</module>
+        <module>sql</module>
     </modules>
 
     <properties>

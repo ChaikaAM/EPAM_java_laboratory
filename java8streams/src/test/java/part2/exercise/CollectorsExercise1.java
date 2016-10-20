@@ -115,7 +115,7 @@ public class CollectorsExercise1 {
                         .entrySet()
                         .stream().map(//TODO brain is damaged... need some time for reabilitation
                 .collect(groupingBy(
-                                //TODO brain is damaged... need some time for reabilitation
+                                //TODO brain is damaged... need some time for reabilitati
                 )))
     }
 
